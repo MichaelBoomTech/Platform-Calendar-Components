@@ -1,0 +1,25 @@
+.location_parent {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  gap: .5rem;
+  align-items: flex-start;
+}
+
+.location_parent a,
+.location_parent P{
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.location_parent .icon{
+  display: flex;
+  width: 1em;
+  justify-content: center;
+}
+
+.oneLine{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
