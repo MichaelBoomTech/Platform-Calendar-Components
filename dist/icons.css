@@ -24,6 +24,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[class^="icon-"]::before, 
+[class*=" icon-"]::before{
+  font: inherit !important;
+}
+
 .icon-Mobile:before {
   font-weight: bold !important;
   content: "\e100";
