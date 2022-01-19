@@ -2,7 +2,7 @@ import { copyLink, downloadSharer, openAddToUrl, openShareUrl } from "./addShare
 
 export const LISTED_DETAILS_CONSTRUCTOR = {
   name: {
-    iconName: 'profile',
+    iconName: 'name',
   },
   phone: {
     preposition: 'tel:',
@@ -10,11 +10,11 @@ export const LISTED_DETAILS_CONSTRUCTOR = {
   },
   email: {
     preposition: 'mailto:',
-    iconName: 'mail2',
+    iconName: 'mail',
   },
   website: {
     preposition: '',
-    iconName: 'earth',
+    iconName: 'world',
     validate: (value) => {
       if(value.indexOf('https://') === -1) return 'https://' + value
       return value
@@ -36,7 +36,7 @@ export const ADD_SHARE_ICONS_CONSTRUCTOR = {
         clickHandler: openAddToUrl
       },
       {
-        type: 'microsoftoutlook',
+        type: 'outlook',
         clickHandler: downloadSharer
       },
       {
@@ -68,7 +68,7 @@ export const ADD_SHARE_ICONS_CONSTRUCTOR = {
         clickHandler: openShareUrl
       },
       {
-        type: 'copyLink',
+        type: 'copy',
         clickHandler: copyLink
       }
     ],

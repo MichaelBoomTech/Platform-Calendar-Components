@@ -9,7 +9,7 @@ var _addShare = require("./addShare");
 
 const LISTED_DETAILS_CONSTRUCTOR = {
   name: {
-    iconName: 'profile'
+    iconName: 'name'
   },
   phone: {
     preposition: 'tel:',
@@ -17,11 +17,11 @@ const LISTED_DETAILS_CONSTRUCTOR = {
   },
   email: {
     preposition: 'mailto:',
-    iconName: 'mail2'
+    iconName: 'mail'
   },
   website: {
     preposition: '',
-    iconName: 'earth',
+    iconName: 'world',
     validate: value => {
       if (value.indexOf('https://') === -1) return 'https://' + value;
       return value;
@@ -41,7 +41,7 @@ const ADD_SHARE_ICONS_CONSTRUCTOR = {
       type: 'google',
       clickHandler: _addShare.openAddToUrl
     }, {
-      type: 'microsoftoutlook',
+      type: 'outlook',
       clickHandler: _addShare.downloadSharer
     }, {
       type: 'apple',
@@ -66,7 +66,7 @@ const ADD_SHARE_ICONS_CONSTRUCTOR = {
       type: 'twitter',
       clickHandler: _addShare.openShareUrl
     }, {
-      type: 'copyLink',
+      type: 'copy',
       clickHandler: _addShare.copyLink
     }]
   }
