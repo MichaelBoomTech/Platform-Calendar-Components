@@ -16,7 +16,7 @@ const Location = ({
 
   const {lat, lng} = data;
 
-  if(!lat || !lng || isNaN(Number(lng)) || isNaN(Number(lng))){
+  if(!lat || !lng || isNaN(Number(lat)) || isNaN(Number(lng))){
     return (
       <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])}>
         <p className={combineClassNames([oneLine ? styles.oneLine : undefined, textClassName])}>

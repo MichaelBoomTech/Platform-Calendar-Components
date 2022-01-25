@@ -94,7 +94,7 @@ const AddShareIconsRow = /*#__PURE__*/(0, _react.memo)(_ref => {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.add_share_icons_row
   }, /*#__PURE__*/_react.default.createElement("div", null, sectionName), /*#__PURE__*/_react.default.createElement("div", null, constructor.icons.map(btn => {
-    const isCopyLink = btn.type === 'copyLink';
+    const isCopyLink = btn.type === 'copy';
     return /*#__PURE__*/_react.default.createElement(_react.Fragment, {
       key: "".concat(event.id, "-").concat(event.startDate, "-add-share-").concat(btn.type)
     }, /*#__PURE__*/_react.default.createElement("button", {

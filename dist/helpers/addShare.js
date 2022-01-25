@@ -9,7 +9,6 @@ exports.setLocation = setLocation;
 exports.openShareUrl = openShareUrl;
 exports.generateEventUrl = generateEventUrl;
 exports.copyLink = copyLink;
-exports.checkProps = checkProps;
 
 require("core-js/modules/es.regexp.exec.js");
 
@@ -145,12 +144,4 @@ function copyLink(e, setCopyTooltipText, copiedTooltipText, eventUrl) {
   document.execCommand('copy');
   a.remove();
   setCopyTooltipText(copiedTooltipText);
-}
-
-function checkProps(props) {
-  if (!props.comp_id) return console.error('component is not rendered as comp_id was missing in props or a falsy value is assigned to it');
-  if (!props.instance) return console.error('component is not rendered as instance was missing in props or a falsy value is assigned to it');
-  if (!props.event || !props.event.hasOwnProperty('id')) return console.error('component is not rendered as event object was missing in props or doesn\'t match to event object skeleton');
-  if (!props.boomEventUrlBase) return console.error('component is not rendered as boomEventUrlBase was missing in props or a falsy value is assigned to it');
-  return true;
 }

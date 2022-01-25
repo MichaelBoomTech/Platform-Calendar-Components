@@ -89,8 +89,8 @@ const AddShareIconsRow = memo(({
             {
                constructor.icons.map(btn => {
                   
-                  const isCopyLink = btn.type === 'copyLink';
-
+                  const isCopyLink = btn.type === 'copy';
+                  
                   return (
                      <Fragment key={`${event.id}-${event.startDate}-add-share-${btn.type}`}>
                         <button

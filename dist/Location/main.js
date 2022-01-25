@@ -33,7 +33,7 @@ const Location = _ref => {
     lng
   } = data;
 
-  if (!lat || !lng || isNaN(Number(lng)) || isNaN(Number(lng))) {
+  if (!lat || !lng || isNaN(Number(lat)) || isNaN(Number(lng))) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: (0, _commons.combineClassNames)([_mainModule.default.location_parent, ...wrapperCustomClassNames])
     }, /*#__PURE__*/_react.default.createElement("p", {
