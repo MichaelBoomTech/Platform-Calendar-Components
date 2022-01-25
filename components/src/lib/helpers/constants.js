@@ -21,7 +21,7 @@ export const LISTED_DETAILS_CONSTRUCTOR = {
     }
   },
   location: {
-    iconName: ''
+    iconName: 'map-pin'
   }
 }
 

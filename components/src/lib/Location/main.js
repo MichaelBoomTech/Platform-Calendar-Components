@@ -5,33 +5,31 @@ import { combineClassNames } from '../helpers/commons'
 
 const Location = ({
   wrapperCustomClassNames = [],
-  address,
+  data,
   disabled = false,
   showIcon = true,
   oneLine = false,
-  coordinates = {},
   linkClassName = '',
   textClassName = ''
 }) => {
-  if(!address) return null
+  if(!data) return null
 
-  const {lat, long} = coordinates;
+  const {lat, lng} = data;
 
-  if(!lat || !long || isNaN(Number(lat)) || isNaN(Number(long))){
+  if(!lat || !lng || isNaN(Number(lng)) || isNaN(Number(lng))){
     return (
       <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])}>
         <p className={combineClassNames([oneLine ? styles.oneLine : undefined, textClassName])}>
-          {address}
+          {data.address}
         </p>
       </div>
     )
   }
-
   return (
     <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])} >
-      {showIcon && <div className={combineClassNames([styles.icon, 'icon-Location', linkClassName])} />}
+      {showIcon && <div className={combineClassNames([styles.icon, 'icon-map-pin', linkClassName])} />}
       <a 
-        href={disabled ? undefined : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} 
+        href={disabled ? undefined : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.address)}`} 
         target="_blank" 
         className={combineClassNames([oneLine ? styles.oneLine : undefined, linkClassName])}
         onClick={e => {
@@ -39,14 +37,26 @@ const Location = ({
           disabled && e.preventDefault();
         }}
       >
-        {address}
+        {data.address}
       </a>
     </div>
   )
 }
 
 Location.propTypes = {
-  address: PropTypes.string,
+  data: PropTypes.shape({
+    address: PropTypes.string,
+    email: PropTypes.string,
+    name: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string,
+    city: PropTypes.string,
+    statesList: PropTypes.string,
+    country: PropTypes.string,
+    postal: PropTypes.string,
+    lat: PropTypes.number,
+    lng: PropTypes.number 
+  }),
   wrapperCustomClassNames: PropTypes.array,
   disabled: PropTypes.bool,
   showIcon: PropTypes.bool,
