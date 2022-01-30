@@ -9,12 +9,11 @@ import Location from './../Location'
 const ListedDetails = ({
     id,
     values,
-    title = '',
+    title = 'Venue',
     titleBorderHidden = false,
     wrapperCustomClassNames = [],
     textDetailsCustomClassNames = [],
-    linkDetailsCustomClassNames = [],
-    rowSpace = '0.25rem'
+    linkDetailsCustomClassNames = []
   }) => {
 
   const parsedValues = parseJson(values)
@@ -23,7 +22,7 @@ const ListedDetails = ({
   if(isObjectEmpty(parsedValues) || !hasAcceptableValues) return null
 
   return (
-    <div className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])} style={{gap: rowSpace}}>
+    <div className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])}>
       <h3 className={titleBorderHidden ? '' : styles.bordered}>{title}</h3>
       {Object.entries(parsedValues).map(val => {
 
@@ -80,11 +79,19 @@ const DetailsItem = ({value, template, rowCustomClassNames}) => {
 }
 
 ListedDetails.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  values: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    website: PropTypes.string,
+  }).isRequired,
   title: PropTypes.string,
   titleBorderHidden: PropTypes.bool,
-  values: PropTypes.object.isRequired,
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string),
+  wrapperClassName: PropTypes.string,
   textDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string),
   linkDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }

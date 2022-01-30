@@ -1,13 +1,15 @@
+.listed_details_block{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem
+}
+
 .listed_details_block > h3 {
   margin-top: 0;
   margin-bottom: .5rem;
   padding-bottom: .5rem;
 }
 
-.listed_details_block{
-  display: flex;
-  flex-direction: column;
-}
 
 h3.bordered {
   border-bottom-width: 1px;

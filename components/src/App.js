@@ -41,7 +41,7 @@ function App() {
           boomEventUrlBase={'https://calendar.boomte.ch/single/'}
           order='vertical'
           hideAddToIcons={false}
-      />     
+      />
       <ListedDetails
           title='title' 
           id={'id'}

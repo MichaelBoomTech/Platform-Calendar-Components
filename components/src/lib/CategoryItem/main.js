@@ -2,38 +2,34 @@ import React, { memo } from 'react'
 import styles from './main.module.css'
 import '../icons.css'
 import PropTypes from 'prop-types'
-import { combineClassNames } from '../helpers/commons'
+import { combineClassNames, isDefined } from '../helpers/commons'
 
-const CategoryItem = (props) => {
+const CategoryItem = ({
+  data: {
+    id,
+    name,
+    color, 
+  },
+  wrapperCustomClassNames = []
+}) => {
   
-  if(!props.category || !props.category.id) return null
-
-  const { 
-    category: {
-      id,
-      name, 
-      color, 
-    },
-    wrapperCustomClassNames = []
-  } = props
-
-  if(!id) return null
+  if(!isDefined(id)) return null
 
   return (
-    <div style={{ color }} className={combineClassNames([styles.category_item, ...wrapperCustomClassNames])}>
-      <span className="icon-tag" />
+    <div style={{ color: color || '#6464ff' }} className={combineClassNames([styles.category_item, ...wrapperCustomClassNames])}>
+      <span className='icon-tag' />
       <span>{name}</span>
     </div>
   )
 }
 
 CategoryItem.propTypes = {
-  category: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string, 
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired, 
     color: PropTypes.string,
   }),
   wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
 
-export default memo(CategoryItem)
+export default CategoryItem
