@@ -62,7 +62,7 @@ export const SHAPE_TICKETS = PropTypes.shape({
 })
 
 export const SHAPE_REPEAT = PropTypes.shape({
-    type: PropTypes.oneOf([ 'Day', 'Week', 'Month', 'Year']).isRequired,
+    type: PropTypes.oneOf([ 'Day', 'Week', 'Month', 'Year']),
     interval: PropTypes.number,
     end: PropTypes.string,
 })

@@ -84,7 +84,7 @@ const SHAPE_TICKETS = _propTypes.default.shape({
 exports.SHAPE_TICKETS = SHAPE_TICKETS;
 
 const SHAPE_REPEAT = _propTypes.default.shape({
-  type: _propTypes.default.oneOf(['Day', 'Week', 'Month', 'Year']).isRequired,
+  type: _propTypes.default.oneOf(['Day', 'Week', 'Month', 'Year']),
   interval: _propTypes.default.number,
   end: _propTypes.default.string
 });
