@@ -51,7 +51,7 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
     url: PropTypes.string,
     limited: PropTypes.bool,
     limit: PropTypes.number,
-    showGuests: PropTypes.bool  
+    showGuests: PropTypes.bool
 })
 
 export const SHAPE_TICKETS = PropTypes.shape({
@@ -87,7 +87,7 @@ export const SHAPE_EVENT = PropTypes.shape({
     // categoryIds: T_Category['id'][],
     guests: PropTypes.arrayOf(SHAPE_GUEST),
     registration: SHAPE_REGISTRATION,
-    tickets: PropTypes.arrayOf(SHAPE_TICKETS),
+    tickets: SHAPE_TICKETS,
     repeat: SHAPE_REPEAT
 })
 

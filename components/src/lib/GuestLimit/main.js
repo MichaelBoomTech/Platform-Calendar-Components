@@ -34,7 +34,7 @@ GuestLimit.propTypes = {
     foreword: PropTypes.string,
     guests: PropTypes.arrayOf(PropTypes.shape(SHAPE_GUEST)),
     globalRegistration: SHAPE_REGISTRATION,
-    globalTickets: PropTypes.arrayOf(PropTypes.shape(SHAPE_TICKETS)),
+    globalTickets: SHAPE_TICKETS,
     wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
 

@@ -110,7 +110,7 @@ const SHAPE_EVENT = _propTypes.default.shape({
   // categoryIds: T_Category['id'][],
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
-  tickets: _propTypes.default.arrayOf(SHAPE_TICKETS),
+  tickets: SHAPE_TICKETS,
   repeat: SHAPE_REPEAT
 });
 

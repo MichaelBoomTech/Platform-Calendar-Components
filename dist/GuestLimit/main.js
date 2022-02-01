@@ -49,7 +49,7 @@ GuestLimit.propTypes = {
   foreword: _propTypes.default.string,
   guests: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_GUEST)),
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
-  globalTickets: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_TICKETS)),
+  globalTickets: _commonPropTypes.SHAPE_TICKETS,
   wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
 };
 var _default = GuestLimit;
