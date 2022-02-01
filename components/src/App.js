@@ -7,6 +7,7 @@ import ListedDetails from './lib/ListedDetails/index'
 import Location from './lib/Location/index'
 import AddShareIcons from './lib/AddShareIcons/index'
 import CategoryItem from './lib/CategoryItem'
+import { D_EVENT_1, D_REGISTRATION } from './lib/helpers/defaults'
 
 function App() {
   let exampleEvent1 = {"id":343491,"title":"Open Air Poetry Reading and Discussion","start":"2021-04-21","end":"2021-04-27","all_day":1,"image":"https:\/\/static.wixstatic.com\/media\/11062b_b31efefcdf3846849b7fe93d9203f105~mv2_d_6200_4132_s_4_2.jpg","desc":"<p>Four amazing evenings of poetry reading and discussion! We will do a poetry reading from various poets followed by an interactive discussion. Each day there will be three poets whose works will be read and discussed.<br>If you want to attend and listen to some great poetry, please register. Our organizers will get back to you.<\/p>","color":"color-13","venue":{"name":"Virginia Road","address":"1485 Virginia Road, San Marino, CA 91108, USA","city":"","statesList":"","country":"","postal":"","phone":"","email":"","website":"","showMap":"1","showMapLink":"1","lat":"34.1204167","long":"-118.1201348"},"organizer":{"name":"","phone":"","website":"","email":""},"repeat":{"type":"","interval":"","end":"","advanced":"","exclude":""},"kind":"4","categories":[],"guests":[],"registration":null,"tickets":null};
@@ -62,21 +63,17 @@ function App() {
       
       <hr/>
       <RegistrationButton
-            buttonText={'Reggg'}
-            addons={addons}
-            eventRegistration={registration}
-            eventTicket={null}
-            eventKind={4}
-            eventEndDate={'2021-11-26T23:30:00'}
-            eventStartDate={'2021-11-26T20:30:00'}
-            repeat={{}}
-            guests={[]}
-            planGuestLimit={25}
-            comp_id={'comp-kvhxe3cy'}
-            instance={'6oqhJA2RFtaRznGff9yRrl4jA5wezO_Gprv8HiA4nzw.eyJpbnN0YW5jZUlkIjoiZGMyNjA2NWMtZWM1Yi00NWQ4LTg2ZjEtMGFiZjdkMTI2Y2I3IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjEtMTEtMjRUMDU6NDk6MDQuNTMwWiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6IjhmMzZmN2EwLTI0M2QtNDQ1YS05ZGQ1LTg4NjFjODgwMWI3YyIsInNpdGVPd25lcklkIjoiMmM3N2U4MjUtYWYyMi00ZWE4LWFkODktOTA2MGQwMzk5ZmU0In0'}
-            eventId={201447584147}
-            registrationPageUrl={'https://shahen.boomtechdev.com/calendar/model/registration.php/'}      
+          cid={123}
+          text={'Pele'}
+          urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
+          event={D_EVENT_1}
+          globalRegistration={D_REGISTRATION}
       />
+      <GuestLimit
+          foreword='Guests'
+          event={D_EVENT_1}
+          globalRegistration={D_REGISTRATION}
+      /> 
       {/* <DateBox
         start="09/27/2021T12:30"
         end="09/27/2021T13:30"
@@ -127,20 +124,6 @@ function App() {
           showYear={true}
         />      
 
-      {/* <GuestLimit
-        addons={[
-          JSON.parse(test_registration_addon),
-          JSON.parse(test_ticket_addon)
-        ]}
-        eventRegistration={JSON.parse(test_event_registration)}
-        eventTicket={JSON.parse(test_event_ticket)}
-        eventKind={1}
-        eventEndDate='09/30/2021'
-        eventStartDate='09/30/2021'
-        repeat={{ type: '' }}
-        guests={JSON.parse(test_event_guests)}
-        wrapperCustomClassNames={['guest_limit']}
-      />  */}
       {/* <CategoryItem
         category={{
           id: 454,

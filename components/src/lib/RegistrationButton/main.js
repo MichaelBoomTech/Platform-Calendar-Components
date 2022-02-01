@@ -1,77 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
-import { getGuestLimitProperties } from './../helpers/guestLimit'
 import { combineClassNames } from './../helpers/commons'
+import { SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { getShowRegistrationButtonStatus, generateRegistrationURL, getGuestsOptions } from '../helpers/guestLimit'
 
 const RegistrationButton = ({
-  wrapperCustomClassNames = [],
-  onClick = (url) => url && window.open(url, '_blank'),
-  eventRegistration,
-  eventTicket,
-  addons = [],
-  eventKind = 1,
-  eventPageUrl = '',
-  eventEndDate,
-  eventStartDate,
-  planGuestLimit = 0,
-  repeat,
-  guests,
-  comp_id,
-  instance,
-  eventId,
-  registrationPageUrl,
-  text = 'Register'
+  cid,
+  text = 'Register',
+  urlBase,
+  event,
+  globalRegistration,
+  globalTickets,
+  wrapperClassName = ''
 }) => {
-  const { showButton, buttonText, page_url, guest_limit, guestsCount } =
-  getGuestLimitProperties({
-      eventRegistration,
-      eventTicket,
-      addons,
-      eventKind,
-      eventPageUrl,
-      eventEndDate,
-      planGuestLimit,
-      repeat,
-      guests,
-      eventStartDate,
-      comp_id,
-      instance,
-      eventId,
-      registrationPageUrl,
-      text
-    })
+  const registration = event.registration ?? globalRegistration
+  const tickets = event.tickets ?? globalTickets
 
-  if (!showButton) return null
+  const show = getShowRegistrationButtonStatus(event, registration)
+  if (!show) return null
 
+  const url = generateRegistrationURL(cid, event, registration, urlBase)
+  const guestsOptions = getGuestsOptions(event, registration, tickets)
+  if(!guestsOptions) return null
+
+  const { count, limit } = guestsOptions
+  
   return (
     <button
-      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames])}
-      style={{opacity: guestsCount >= guest_limit ? 0.4 : 1}}
-      onClick={() => (guestsCount >= guest_limit ? null : onClick(page_url))}
+      className={combineClassNames([styles.register_button, wrapperClassName])}
+      disabled={count >= limit}
+      onClick={() => window.open(url, '_blank')}
     >
-      {buttonText}
+      { text }
     </button>
   )
 }
 
 RegistrationButton.propTypes = {
-  wrapperCustomClassNames: PropTypes.array,
+  cid: PropTypes.number.isRequired,
+  urlBase: PropTypes.string.isRequired,
   text: PropTypes.string,
-  onClick: PropTypes.func,
-  addons: PropTypes.array.isRequired,
-  eventKind: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  eventRegistration: PropTypes.object,
-  eventPageUrl: PropTypes.string,
-  planGuestLimit: PropTypes.number,
-  eventEndDate: PropTypes.string.isRequired,
-  eventStartDate: PropTypes.string.isRequired,
-  repeat: PropTypes.object.isRequired,
-  guests: PropTypes.oneOfType([PropTypes.array, PropTypes.number]).isRequired,
-  comp_id: PropTypes.string.isRequired,
-  instance: PropTypes.string.isRequired,
-  eventId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  registrationPageUrl: PropTypes.string.isRequired
+  event: SHAPE_EVENT,
+  globalRegistration: SHAPE_REGISTRATION,
+  globalTickets: SHAPE_TICKETS,
+  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
 
 
