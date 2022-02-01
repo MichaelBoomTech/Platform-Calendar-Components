@@ -1,12 +1,16 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import parse from 'html-react-parser';
 import styles from './main.module.css'
 import { combineClassNames } from '../helpers/commons'
 import PropTypes from 'prop-types'
 
-const Description = ({ title, children, wrapperCustomClassNames = [] }) => {
+const Description = ({
+    title,
+    children,
+    wrapperCustomClassNames = []
+  }) => {
 
-  const descriptionNode = useMemo(() => parse(children), [children]);
+  const descriptionNode = parse(children);
   
   if(!children) return null;
 

@@ -1,17 +1,15 @@
-import CategoryItem from '../lib/CategoryItem/main'
-import { Event_2 } from '../lib/helpers/defaults'
+import { CUSTOM_CLASSNAMES, EVENT_2 } from '../lib/helpers/defaults'
+import Category from '../lib/CategoryItem/main'
 
 export default {
-    title: 'Categories',
-    component: CategoryItem,
-    matchers: {
-        data: {color: /(background|color)$/i}
-    }
+    title: 'Category Item',
+    component: Category,
 }
 
-const Template = args => <CategoryItem { ...args } />
+const Template = args => <Category { ...args } />
 
-export const Category = Template.bind({})
-Category.args = {
-    data: Event_2.categories?.[0]
+export const CategoryItem = Template.bind({})
+CategoryItem.args = {
+    data: EVENT_2.categories?.[0],
+    wrapperCustomClassNames: CUSTOM_CLASSNAMES
 }

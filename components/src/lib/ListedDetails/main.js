@@ -88,10 +88,10 @@ ListedDetails.propTypes = {
     email: PropTypes.string,
     phone: PropTypes.string,
     website: PropTypes.string,
-  }).isRequired,
+  }),
   title: PropTypes.string,
   titleBorderHidden: PropTypes.bool,
-  wrapperClassName: PropTypes.string,
+  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string),
   textDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string),
   linkDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
