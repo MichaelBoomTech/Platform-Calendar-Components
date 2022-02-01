@@ -5,90 +5,58 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
-var _guestLimit = require("./../helpers/guestLimit");
-
 var _commons = require("./../helpers/commons");
+
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
+var _guestLimit = require("../helpers/guestLimit");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const RegistrationButton = _ref => {
+  var _event$registration, _event$tickets;
+
   let {
-    wrapperCustomClassNames = [],
-    onClick: _onClick = url => url && window.open(url, '_blank'),
-    eventRegistration,
-    eventTicket,
-    addons = [],
-    eventKind = 1,
-    eventPageUrl = '',
-    eventEndDate,
-    eventStartDate,
-    planGuestLimit = 0,
-    repeat,
-    guests,
-    comp_id,
-    instance,
-    eventId,
-    registrationPageUrl,
-    text = 'Register'
+    cid,
+    text = 'Register',
+    urlBase,
+    event,
+    globalRegistration,
+    globalTickets,
+    wrapperClassName = ''
   } = _ref;
+  const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
+  const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
+  const show = (0, _guestLimit.getShowRegistrationButtonStatus)(event, registration);
+  if (!show) return null;
+  const url = (0, _guestLimit.generateRegistrationURL)(cid, event, registration, urlBase);
+  const guestsOptions = (0, _guestLimit.getGuestsOptions)(event, registration, tickets);
+  if (!guestsOptions) return null;
   const {
-    showButton,
-    buttonText,
-    page_url,
-    guest_limit,
-    guestsCount
-  } = (0, _guestLimit.getGuestLimitProperties)({
-    eventRegistration,
-    eventTicket,
-    addons,
-    eventKind,
-    eventPageUrl,
-    eventEndDate,
-    planGuestLimit,
-    repeat,
-    guests,
-    eventStartDate,
-    comp_id,
-    instance,
-    eventId,
-    registrationPageUrl,
-    text
-  });
-  if (!showButton) return null;
+    count,
+    limit
+  } = guestsOptions;
   return /*#__PURE__*/_react.default.createElement("button", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames]),
-    style: {
-      opacity: guestsCount >= guest_limit ? 0.4 : 1
-    },
-    onClick: () => guestsCount >= guest_limit ? null : _onClick(page_url)
-  }, buttonText);
+    className: (0, _commons.combineClassNames)([_mainModule.default.register_button, wrapperClassName]),
+    disabled: count >= limit,
+    onClick: () => window.open(url, '_blank')
+  }, text);
 };
 
 RegistrationButton.propTypes = {
-  wrapperCustomClassNames: _propTypes.default.array,
+  cid: _propTypes.default.number.isRequired,
+  urlBase: _propTypes.default.string.isRequired,
   text: _propTypes.default.string,
-  onClick: _propTypes.default.func,
-  addons: _propTypes.default.array.isRequired,
-  eventKind: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
-  eventRegistration: _propTypes.default.object,
-  eventPageUrl: _propTypes.default.string,
-  planGuestLimit: _propTypes.default.number,
-  eventEndDate: _propTypes.default.string.isRequired,
-  eventStartDate: _propTypes.default.string.isRequired,
-  repeat: _propTypes.default.object.isRequired,
-  guests: _propTypes.default.oneOfType([_propTypes.default.array, _propTypes.default.number]).isRequired,
-  comp_id: _propTypes.default.string.isRequired,
-  instance: _propTypes.default.string.isRequired,
-  eventId: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]).isRequired,
-  registrationPageUrl: _propTypes.default.string.isRequired
+  event: _commonPropTypes.SHAPE_EVENT,
+  globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
+  globalTickets: _commonPropTypes.SHAPE_TICKETS,
+  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
 };
 var _default = RegistrationButton;
 exports.default = _default;

@@ -12,3 +12,7 @@
   cursor: pointer;
   box-sizing: border-box;
 }
+
+.register_button:disabled {
+  opacity: .4;
+}

@@ -13,39 +13,44 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
-var _guestLimit = require("./../helpers/guestLimit");
-
 var _commons = require("./../helpers/commons");
+
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
+var _guestLimit = require("../helpers/guestLimit");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const GuestLimit = props => {
+const GuestLimit = _ref => {
+  var _event$registration, _event$tickets, _tickets$list;
+
+  let {
+    foreword = 'Guests Limit',
+    event,
+    globalRegistration,
+    globalTickets,
+    wrapperCustomClassNames = []
+  } = _ref;
+  const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
+  const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
+  if (!(tickets !== null && tickets !== void 0 && (_tickets$list = tickets.list) !== null && _tickets$list !== void 0 && _tickets$list.length) && (registration.guestsLimited || !registration.showGuests)) return null;
+  const guestsOptions = (0, _guestLimit.getGuestsOptions)(event, registration, tickets);
+  if (!guestsOptions) return null;
   const {
-    show_guest_limit,
-    guest_limit,
-    guestsCount
-  } = (0, _guestLimit.getGuestLimitProperties)(props);
-  if (!show_guest_limit) return null;
-  const {
-    wrapperCustomClassNames = [],
-    label
-  } = props;
+    count,
+    limit
+  } = guestsOptions;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
-  }, /*#__PURE__*/_react.default.createElement("p", null, label, ": ", guestsCount, "/", guest_limit));
+  }, /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", count, " / ", limit));
 };
 
 GuestLimit.propTypes = {
-  addons: _propTypes.default.array.isRequired,
-  eventRegistration: _propTypes.default.object,
-  eventTicket: _propTypes.default.object,
-  eventKind: _propTypes.default.number,
-  eventStartDate: _propTypes.default.string.isRequired,
-  repeat: _propTypes.default.object.isRequired,
-  guests: _propTypes.default.oneOfType([_propTypes.default.array, _propTypes.default.number]).isRequired,
-  wrapperCustomClassNames: _propTypes.default.array,
-  planGuestLimit: _propTypes.default.number,
-  label: _propTypes.default.string.isRequired
+  foreword: _propTypes.default.string,
+  guests: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_GUEST)),
+  globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
+  globalTickets: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_TICKETS)),
+  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
 };
 var _default = GuestLimit;
 exports.default = _default;

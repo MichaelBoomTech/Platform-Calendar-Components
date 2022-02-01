@@ -35,7 +35,7 @@ GuestLimit.propTypes = {
     guests: PropTypes.arrayOf(PropTypes.shape(SHAPE_GUEST)),
     globalRegistration: SHAPE_REGISTRATION,
     globalTickets: PropTypes.arrayOf(PropTypes.shape(SHAPE_TICKETS)),
-    wrapperCustomClassNames: PropTypes.string
+    wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default GuestLimit
