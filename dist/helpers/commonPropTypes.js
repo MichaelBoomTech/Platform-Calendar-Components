@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_TICKETS = exports.SHAPE_REGISTRATION = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_Cid = void 0;
+exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_REGISTRATION = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_Cid = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -83,6 +83,14 @@ const SHAPE_TICKETS = _propTypes.default.shape({
 
 exports.SHAPE_TICKETS = SHAPE_TICKETS;
 
+const SHAPE_REPEAT = _propTypes.default.shape({
+  type: _propTypes.default.oneOf(['Day', 'Week', 'Month', 'Year']).isRequired,
+  interval: _propTypes.default.number,
+  end: _propTypes.default.string
+});
+
+exports.SHAPE_REPEAT = SHAPE_REPEAT;
+
 const SHAPE_EVENT = _propTypes.default.shape({
   id: _propTypes.default.number.isRequired,
   key: _propTypes.default.string.isRequired,
@@ -103,7 +111,7 @@ const SHAPE_EVENT = _propTypes.default.shape({
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
   tickets: _propTypes.default.arrayOf(SHAPE_TICKETS),
-  repeat: _propTypes.default.string
+  repeat: SHAPE_REPEAT
 });
 
 exports.SHAPE_EVENT = SHAPE_EVENT;
