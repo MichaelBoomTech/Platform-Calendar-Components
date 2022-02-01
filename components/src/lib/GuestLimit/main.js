@@ -12,14 +12,15 @@ const GuestLimit = ({
     globalTickets,
     wrapperCustomClassNames = []    
 }) => {
-    const registration = event.registration ?? globalRegistration
-    const tickets = event.tickets ?? globalTickets
-    if(!tickets?.list?.length && (registration.guestsLimited || !registration.showGuests)) return null
 
-    const guestsOptions = getGuestsOptions(event, registration, tickets)
-    if(!guestsOptions) return null
-  
-    const { count, limit } = guestsOptions
+  const registration = event.registration ?? globalRegistration
+  const tickets = event.tickets ?? globalTickets
+  if(!tickets?.list?.length && (registration.guestsLimited || !registration.showGuests)) return null
+
+  const guestsOptions = getGuestsOptions(event, registration, tickets)
+  if(!guestsOptions) return null
+
+  const { count, limit } = guestsOptions
 
   return (
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
