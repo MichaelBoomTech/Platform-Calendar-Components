@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const PT_Cid = _propTypes.default.number;
+const PT_Cid = _propTypes.default.string;
 exports.PT_Cid = PT_Cid;
 
 const SHAPE_PHYSICAL_LOCATION = _propTypes.default.shape({

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const PT_Cid = PropTypes.number
+export const PT_Cid = PropTypes.string
 
 export const SHAPE_PHYSICAL_LOCATION = PropTypes.shape({
     address: PropTypes.string,
