@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from './../helpers/commons'
-import { SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { PT_Cid, SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
 import { getShowRegistrationButtonStatus, generateRegistrationURL, getGuestsOptions } from '../helpers/guestLimit'
 
 const RegistrationButton = ({
@@ -38,7 +38,7 @@ const RegistrationButton = ({
 }
 
 RegistrationButton.propTypes = {
-  cid: PropTypes.number.isRequired,
+  cid: PT_Cid.isRequired,
   urlBase: PropTypes.string.isRequired,
   text: PropTypes.string,
   event: SHAPE_EVENT,

@@ -50,7 +50,7 @@ const RegistrationButton = _ref => {
 };
 
 RegistrationButton.propTypes = {
-  cid: _propTypes.default.number.isRequired,
+  cid: _commonPropTypes.PT_Cid.isRequired,
   urlBase: _propTypes.default.string.isRequired,
   text: _propTypes.default.string,
   event: _commonPropTypes.SHAPE_EVENT,
