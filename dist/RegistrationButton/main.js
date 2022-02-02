@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("core-js/modules/web.dom-collections.iterator.js");
+
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -29,7 +31,7 @@ const RegistrationButton = _ref => {
     event,
     globalRegistration,
     globalTickets,
-    wrapperClassName = ''
+    wrapperCustomClassNames = []
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
@@ -43,7 +45,7 @@ const RegistrationButton = _ref => {
     limit
   } = guestsOptions;
   return /*#__PURE__*/_react.default.createElement("button", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.register_button, wrapperClassName]),
+    className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames]),
     disabled: count >= limit,
     onClick: () => window.open(url, '_blank')
   }, text);

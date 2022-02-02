@@ -12,7 +12,7 @@ const RegistrationButton = ({
   event,
   globalRegistration,
   globalTickets,
-  wrapperClassName = ''
+  wrapperCustomClassNames = []
 }) => {
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
@@ -28,7 +28,7 @@ const RegistrationButton = ({
   
   return (
     <button
-      className={combineClassNames([styles.register_button, wrapperClassName])}
+      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames])}
       disabled={count >= limit}
       onClick={() => window.open(url, '_blank')}
     >
