@@ -1,7 +1,7 @@
 import React, { Fragment, memo, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
-import '../icons.css'
+import '../assets/styles/icons.css'
 import { ADD_SHARE_ICONS_CONSTRUCTOR } from '../helpers/constants'
 import { combineClassNames } from '../helpers/commons'
 import { generateEventUrl } from '../helpers/addShare'

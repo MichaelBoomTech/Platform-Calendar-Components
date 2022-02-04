@@ -4,13 +4,13 @@ import styles from './main.module.css'
 import { combineClassNames } from '../helpers/commons'
 
 const Location = ({
-  wrapperCustomClassNames = [],
   data,
   disabled = false,
   showIcon = true,
   oneLine = false,
   linkClassName = '',
-  textClassName = ''
+  textClassName = '',
+  wrapperCustomClassNames = []
 }) => {
   if(!data) return null
 
@@ -27,7 +27,7 @@ const Location = ({
   }
   return (
     <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])} >
-      {showIcon && <div className={combineClassNames([styles.icon, 'icon-map-pin', linkClassName])} />}
+      {showIcon && <div className={combineClassNames([styles.icon, 'icon-location', linkClassName])} />}
       <a 
         href={disabled ? undefined : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.address)}`} 
         target="_blank" 

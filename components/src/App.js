@@ -118,7 +118,7 @@ function App() {
           // dateFormat="DD MMMM, YYYY"
           all_day={false}
           // agenda={true}
-          showIcons={false}
+          showIcons={true}
           // type="dateBox"
           timeFormat='am/pm'
           showYear={true}
