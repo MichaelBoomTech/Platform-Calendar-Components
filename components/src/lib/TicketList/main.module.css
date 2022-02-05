@@ -2,3 +2,7 @@
   display: flex;
   gap: .5rem;
 }
+
+.wrapper > div:first-of-type {
+  margin-top: 2px;
+}

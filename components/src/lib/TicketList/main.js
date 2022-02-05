@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { SHAPE_TICKETS } from '../helpers/commonPropTypes'
 import { combineClassNames } from '../helpers/commons'
+import styles from './main.module.css'
 
 const TicketList = ({
   data,
@@ -17,7 +18,11 @@ const TicketList = ({
         {
           data.list.map(item => {
             return (
-              <div> { item.label } </div>
+              <pre>
+                {
+                  `${item.limited ? (`${ item.limit } x ${ item.label }   `) : ''}${ item.price }`
+                }
+              </pre>
             )
           })
         }
