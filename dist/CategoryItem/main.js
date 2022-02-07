@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
-require("../icons.css");
+require("../assets/styles/icons.css");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 

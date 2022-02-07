@@ -19,13 +19,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Location = _ref => {
   let {
-    wrapperCustomClassNames = [],
     data,
     disabled = false,
     showIcon = true,
     oneLine = false,
     linkClassName = '',
-    textClassName = ''
+    textClassName = '',
+    wrapperCustomClassNames = []
   } = _ref;
   if (!data) return null;
   const {
@@ -44,7 +44,7 @@ const Location = _ref => {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.location_parent, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.icon, 'icon-map-pin', linkClassName])
+    className: (0, _commons.combineClassNames)([_mainModule.default.icon, 'icon-location', linkClassName])
   }), /*#__PURE__*/_react.default.createElement("a", {
     href: disabled ? undefined : "https://www.google.com/maps/search/?api=1&query=".concat(encodeURIComponent(data.address)),
     target: "_blank",

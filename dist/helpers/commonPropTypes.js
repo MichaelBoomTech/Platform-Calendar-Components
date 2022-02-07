@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_REGISTRATION = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_Cid = void 0;
+exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET_FIELDS = exports.CURRENCY_TYPES = exports.SHAPE_REGISTRATION = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_Cid = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -28,15 +28,21 @@ const SHAPE_PHYSICAL_LOCATION = _propTypes.default.shape({
 
 exports.SHAPE_PHYSICAL_LOCATION = SHAPE_PHYSICAL_LOCATION;
 
+const SHAPE_GUEST_TICKET = _propTypes.default.shape({
+  label: _propTypes.default.string,
+  currency: _propTypes.default.string,
+  quantity: _propTypes.default.number,
+  price: _propTypes.default.number
+});
+
+exports.SHAPE_GUEST_TICKET = SHAPE_GUEST_TICKET;
+
 const SHAPE_GUEST = _propTypes.default.shape({
   id: _propTypes.default.string,
   date: _propTypes.default.string,
   firstName: _propTypes.default.string,
   lastName: _propTypes.default.string,
-  tickets: _propTypes.default.arrayOf(_propTypes.default.shape({
-    quantity: _propTypes.default.number,
-    label: _propTypes.default.string
-  }))
+  tickets: _propTypes.default.arrayOf(SHAPE_GUEST_TICKET)
 });
 
 exports.SHAPE_GUEST = SHAPE_GUEST;
@@ -74,11 +80,26 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
 
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;
 
+const CURRENCY_TYPES = _propTypes.default.oneOf(["$ Dollars", "฿ Baht", "€ Euros", "Ft Forint", "CHF Francs", "Kč Koruna", "kr Krona", "$ Mexican Pesos", "£ Pounds Sterling", "RM Ringgit", "₪ Shekel", "zł Zloty", "₹ Rupee"]);
+
+exports.CURRENCY_TYPES = CURRENCY_TYPES;
+
+const SHAPE_TICKET_FIELDS = _propTypes.default.shape({
+  label: _propTypes.default.string,
+  price: _propTypes.default.number,
+  free: _propTypes.default.bool,
+  limited: _propTypes.default.bool,
+  limit: _propTypes.default.number
+});
+
+exports.SHAPE_TICKET_FIELDS = SHAPE_TICKET_FIELDS;
+
 const SHAPE_TICKETS = _propTypes.default.shape({
   open: _propTypes.default.bool,
   fee: _propTypes.default.number,
   showLimit: _propTypes.default.bool,
-  list: _propTypes.default.array
+  currency: CURRENCY_TYPES,
+  list: _propTypes.default.arrayOf(SHAPE_TICKET_FIELDS)
 });
 
 exports.SHAPE_TICKETS = SHAPE_TICKETS;

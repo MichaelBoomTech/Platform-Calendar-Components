@@ -1,28 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { SHAPE_GUEST_TICKET, SHAPE_TICKETS } from '../helpers/commonPropTypes'
 import { combineClassNames } from '../helpers/commons'
 import styles from './main.module.css'
 
 const TicketList = ({
-  data,
+  open = false,
+  tickets = [],
   wrapperCustomClassNames = []
   }) => {
   
-  if(!data.open) return null
+  if(!open || tickets.length === 0) return null
   
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames]) }>
       <div className='icon-ticket' />
       <div>
         {
-          data.list.map(item => {
+          tickets.map(ticket => {
             return (
-              <pre>
+              <div key={ ticket.label + ticket.limit }>
+                <span>
+                  {`${ ticket.quantity } x ${ ticket.label }`}
+                </span>
                 {
-                  `${item.limited ? (`${ item.limit } x ${ item.label }   `) : ''}${ item.price }`
+                  ticket.price ?
+                  <span className={ styles.price }>
+                    { `${ ticket.currency }${ ticket.price }` }
+                  </span> : 
+                  null
                 }
-              </pre>
+              </div>
             )
           })
         }
@@ -32,7 +40,8 @@ const TicketList = ({
 }
 
 TicketList.propTypes = {
-  data: SHAPE_TICKETS,
+  open: PropTypes.bool,
+  tickets: PropTypes.arrayOf(SHAPE_GUEST_TICKET),
   wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
 }
 

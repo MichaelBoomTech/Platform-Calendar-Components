@@ -16,15 +16,19 @@ export const SHAPE_PHYSICAL_LOCATION = PropTypes.shape({
     lng: PropTypes.number
 })
 
+export const SHAPE_GUEST_TICKET = PropTypes.shape({
+    label: PropTypes.string,
+    currency: PropTypes.string,
+    quantity: PropTypes.number,
+    price: PropTypes.number,
+})
+
 export const SHAPE_GUEST = PropTypes.shape({
     id: PropTypes.string,
     date: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    tickets: PropTypes.arrayOf(PropTypes.shape({
-        quantity: PropTypes.number,
-        label: PropTypes.string
-    }))
+    tickets: PropTypes.arrayOf(SHAPE_GUEST_TICKET)
 })
 
 export const SHAPE_LOCATION = PropTypes.shape({

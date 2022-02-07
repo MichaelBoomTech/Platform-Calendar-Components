@@ -133,51 +133,24 @@ function App() {
         }}
         wrapperCustomClassNames={['customClassName']}
       /> */}
-      <TicketList data={
-        {
-          open: true,
-          fee: 0,
-          showPrices: true,
-          showLimit: true,
-          currency: '$ Dollars',
-          list: [
-            {
-              label: 'Example',
-              price: 4,
-              limited: true,
-              limit: 500,
-              free: false
-            },
-            {
-              label: 'Ticket name',
-              price: 0,
-              limited: false,
-              limit: 0,
-              free: false
-            },
-            {
-              label: 'Example',
-              price: 4,
-              limited: true,
-              limit: 500,
-              free: false
-            }
-          ],
-          priceFormat: '$100',
-          promoCodes: [],
-          payment: {
-            cash: {
-              enabled: true
-            },
-            stripe:{
-              enabled: false
-            },
-            paypal:{
-              enabled: false
-            }
-          }
-        }
-      } />
+      <TicketList
+        open={true}
+        tickets={[
+          {
+            label: 'A-23 seat',
+            currency: '$',
+            price: 30,
+            quantity: 2,
+          },
+          {
+            label: 'A-24 seat',
+            currency: '$',
+            price: 25,
+            quantity: 1,
+          },
+        ]}
+      />
+
       <div style={{height: 150, width: 150}}>
         <BlurryLoadableImg
           // url={'https://drive.google.com/uc?id=1rJhGctvvf5L-3qfLe1zfgmleuSo-AhWB'}
