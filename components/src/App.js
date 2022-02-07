@@ -60,7 +60,7 @@ function App() {
           textDetailsCustomClassNames={['textDetailsCustomClassNames']}
           linkDetailsCustomClassNames={['linkDetailsCustomClassNames']}
       />
-      <Location data={{address: 'Shengavit', lat: 100, lng: 200}} />
+      <Location data={{address: 'ShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavit', lat: 100, lng: 200}} />
       
       <hr/>
       <RegistrationButton

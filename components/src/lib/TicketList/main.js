@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SHAPE_GUEST_TICKET, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { SHAPE_GUEST_TICKET } from '../helpers/commonPropTypes'
 import { combineClassNames } from '../helpers/commons'
 import styles from './main.module.css'
 
@@ -21,7 +21,7 @@ const TicketList = ({
             return (
               <div key={ ticket.label + ticket.limit }>
                 <span>
-                  {`${ ticket.quantity } x ${ ticket.label }`}
+                  { `${ ticket.quantity } x ${ ticket.label }` }
                 </span>
                 {
                   ticket.price ?
