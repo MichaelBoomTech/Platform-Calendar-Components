@@ -29,7 +29,7 @@ function generateRegistrationURL(cid, event, registration, urlBase) {
   var _event$repeat;
 
   if (registration.external) return registration.url;
-  return "".concat(urlBase).concat((0, _commons.encodeId)(String(event.id)), "?cid=").concat(cid).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '&startDate=' + event.st.split('T')[0] : '');
+  return "".concat(urlBase).concat((0, _commons.encodeId)(String(event.id)), "?cid=").concat(cid).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '&startDate=' + event.start.split('T')[0] : '');
 }
 
 function getGuestsOptions(event, registration, tickets) {

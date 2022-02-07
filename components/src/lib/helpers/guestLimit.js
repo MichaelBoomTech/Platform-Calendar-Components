@@ -8,7 +8,7 @@ export function getShowRegistrationButtonStatus(event, registration) {
 
 export function generateRegistrationURL(cid, event, registration, urlBase) {
   if(registration.external) return registration.url
-  return `${urlBase}${encodeId(String(event.id))}?cid=${cid}${event?.repeat?.type ? '&startDate='+event.st.split('T')[0] : ''}`
+  return `${urlBase}${encodeId(String(event.id))}?cid=${cid}${event?.repeat?.type ? '&startDate='+event.start.split('T')[0] : ''}`
 }
 
 export function getGuestsOptions(event, registration, tickets) {
