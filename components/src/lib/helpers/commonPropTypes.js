@@ -16,15 +16,19 @@ export const SHAPE_PHYSICAL_LOCATION = PropTypes.shape({
     lng: PropTypes.number
 })
 
+export const SHAPE_GUEST_TICKET = PropTypes.shape({
+    label: PropTypes.string,
+    currency: PropTypes.string,
+    quantity: PropTypes.number,
+    price: PropTypes.number,
+})
+
 export const SHAPE_GUEST = PropTypes.shape({
     id: PropTypes.string,
     date: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    tickets: PropTypes.arrayOf(PropTypes.shape({
-        quantity: PropTypes.number,
-        label: PropTypes.string
-    }))
+    tickets: PropTypes.arrayOf(SHAPE_GUEST_TICKET)
 })
 
 export const SHAPE_LOCATION = PropTypes.shape({
@@ -54,11 +58,22 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
     showGuests: PropTypes.bool
 })
 
+export const CURRENCY_TYPES = PropTypes.oneOf(["$ Dollars", "฿ Baht", "€ Euros", "Ft Forint", "CHF Francs", "Kč Koruna", "kr Krona", "$ Mexican Pesos", "£ Pounds Sterling", "RM Ringgit", "₪ Shekel", "zł Zloty", "₹ Rupee"])
+
+export const SHAPE_TICKET_FIELDS = PropTypes.shape({
+    label: PropTypes.string,
+    price: PropTypes.number,
+    free: PropTypes.bool,
+    limited: PropTypes.bool,
+    limit: PropTypes.number
+})
+
 export const SHAPE_TICKETS = PropTypes.shape({
     open: PropTypes.bool,
     fee: PropTypes.number,
     showLimit: PropTypes.bool,
-    list: PropTypes.array
+    currency: CURRENCY_TYPES,
+    list: PropTypes.arrayOf(SHAPE_TICKET_FIELDS)
 })
 
 export const SHAPE_REPEAT = PropTypes.shape({
@@ -66,7 +81,6 @@ export const SHAPE_REPEAT = PropTypes.shape({
     interval: PropTypes.number,
     end: PropTypes.string,
 })
-
 
 export const SHAPE_EVENT = PropTypes.shape({
     id: PropTypes.number.isRequired,

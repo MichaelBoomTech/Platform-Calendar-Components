@@ -3,7 +3,7 @@
   cursor: pointer;
   width: 100%;
   gap: .5rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .location_parent a,
@@ -12,10 +12,8 @@
   overflow-wrap: anywhere;
 }
 
-.location_parent .icon{
-  display: flex;
+.location_parent .icon {
   width: 1em;
-  justify-content: center;
 }
 
 .oneLine{

@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  gap: .5rem;
+}
+
+.wrapper > div:first-of-type {
+  margin-top: 2px;
+}
+
+.price {
+  margin-left: 16px;
+}

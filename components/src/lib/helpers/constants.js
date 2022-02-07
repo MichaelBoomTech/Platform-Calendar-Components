@@ -6,7 +6,7 @@ export const LISTED_DETAILS_CONSTRUCTOR = {
   },
   phone: {
     preposition: 'tel:',
-    iconName: 'Mobile',
+    iconName: 'phone',
   },
   email: {
     preposition: 'mailto:',
