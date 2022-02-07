@@ -79,7 +79,7 @@ export const SHAPE_TICKETS = PropTypes.shape({
 export const SHAPE_REPEAT = PropTypes.shape({
     type: PropTypes.oneOf([ 'Day', 'Week', 'Month', 'Year']),
     interval: PropTypes.number,
-    end: PropTypes.string,
+    end: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 })
 
 export const SHAPE_EVENT = PropTypes.shape({
@@ -98,7 +98,6 @@ export const SHAPE_EVENT = PropTypes.shape({
     scheduledOn: PropTypes.string,
     location: SHAPE_LOCATION,
     organizer: SHAPE_ORGANIZER,
-    // categoryIds: T_Category['id'][],
     guests: PropTypes.arrayOf(SHAPE_GUEST),
     registration: SHAPE_REGISTRATION,
     tickets: SHAPE_TICKETS,

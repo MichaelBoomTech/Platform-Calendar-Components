@@ -107,7 +107,7 @@ exports.SHAPE_TICKETS = SHAPE_TICKETS;
 const SHAPE_REPEAT = _propTypes.default.shape({
   type: _propTypes.default.oneOf(['Day', 'Week', 'Month', 'Year']),
   interval: _propTypes.default.number,
-  end: _propTypes.default.string
+  end: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
 });
 
 exports.SHAPE_REPEAT = SHAPE_REPEAT;
@@ -128,7 +128,6 @@ const SHAPE_EVENT = _propTypes.default.shape({
   scheduledOn: _propTypes.default.string,
   location: SHAPE_LOCATION,
   organizer: SHAPE_ORGANIZER,
-  // categoryIds: T_Category['id'][],
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
   tickets: SHAPE_TICKETS,
