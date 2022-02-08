@@ -16,7 +16,7 @@ const GuestLimit = ({
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
   
-  const show = getShowRegistrationButtonStatus(event, tickets?.open || registration?.open)
+  const show = getShowRegistrationButtonStatus(event, tickets?.enabled || registration?.enabled)
   if(!show) return null
   if(!tickets?.list?.length && (registration.guestsLimited || !registration.showGuests)) return null
 

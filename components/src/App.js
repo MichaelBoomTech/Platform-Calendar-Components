@@ -154,7 +154,7 @@ function App() {
         wrapperCustomClassNames={['customClassName']}
       /> */}
       <TicketList
-        open={true}
+        enabled={true}
         tickets={[
           {
             label: 'A-23 seat',

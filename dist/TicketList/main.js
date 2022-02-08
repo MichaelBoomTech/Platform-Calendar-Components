@@ -21,11 +21,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const TicketList = _ref => {
   let {
-    open = false,
+    enabled = false,
     tickets = [],
     wrapperCustomClassNames = []
   } = _ref;
-  if (!open || tickets.length === 0) return null;
+  if (!enabled || tickets.length === 0) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -40,7 +40,7 @@ const TicketList = _ref => {
 };
 
 TicketList.propTypes = {
-  open: _propTypes.default.bool,
+  enabled: _propTypes.default.bool,
   tickets: _propTypes.default.arrayOf(_commonPropTypes.SHAPE_GUEST_TICKET),
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };

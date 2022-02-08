@@ -1,5 +1,5 @@
 export const D_REGISTRATION = {
-    open: true,
+    enabled: true,
     external: false,
     showGuests: true,
     guestsLimited: false,

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.D_EVENT_1 = exports.D_GUEST_1 = exports.D_REGISTRATION = void 0;
 const D_REGISTRATION = {
-  open: true,
+  enabled: true,
   external: false,
   showGuests: true,
   guestsLimited: false,

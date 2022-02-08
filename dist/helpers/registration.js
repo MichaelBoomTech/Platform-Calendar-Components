@@ -20,9 +20,9 @@ var _commons = require("./commons");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getShowRegistrationButtonStatus(event, open) {
+function getShowRegistrationButtonStatus(event, enabled) {
   if ((0, _moment.default)(event.end).isBefore((0, _moment.default)())) return false;
-  return open;
+  return enabled;
 }
 
 function generateRegistrationURL(cid, event, registration, urlBase) {
@@ -35,8 +35,8 @@ function generateRegistrationURL(cid, event, registration, urlBase) {
 function getGuestsOptions(event, registration, tickets) {
   var _event$guests, _event$guests2, _event$guests2$ticket, _event$guests$length, _event$guests3;
 
-  if (!registration.open || registration.external) return null;
-  if (tickets !== null && tickets !== void 0 && tickets.open && (_event$guests = event.guests) !== null && _event$guests !== void 0 && _event$guests.length && (_event$guests2 = event.guests) !== null && _event$guests2 !== void 0 && (_event$guests2$ticket = _event$guests2.tickets) !== null && _event$guests2$ticket !== void 0 && _event$guests2$ticket.length) return calcGuestsOptionsByTickets(event, tickets);
+  if (!registration.enabled || registration.external) return null;
+  if (tickets !== null && tickets !== void 0 && tickets.enabled && (_event$guests = event.guests) !== null && _event$guests !== void 0 && _event$guests.length && (_event$guests2 = event.guests) !== null && _event$guests2 !== void 0 && (_event$guests2$ticket = _event$guests2.tickets) !== null && _event$guests2$ticket !== void 0 && _event$guests2$ticket.length) return calcGuestsOptionsByTickets(event, tickets);
   return {
     count: (_event$guests$length = event === null || event === void 0 ? void 0 : (_event$guests3 = event.guests) === null || _event$guests3 === void 0 ? void 0 : _event$guests3.length) !== null && _event$guests$length !== void 0 ? _event$guests$length : 0,
     limit: registration.guestsLimit

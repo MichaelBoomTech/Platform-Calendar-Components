@@ -33,7 +33,7 @@ const GuestLimit = _ref => {
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
-  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.open) || (registration === null || registration === void 0 ? void 0 : registration.open));
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.enabled) || (registration === null || registration === void 0 ? void 0 : registration.enabled));
   if (!show) return null;
   if (!(tickets !== null && tickets !== void 0 && (_tickets$list = tickets.list) !== null && _tickets$list !== void 0 && _tickets$list.length) && (registration.guestsLimited || !registration.showGuests)) return null;
   const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, tickets);

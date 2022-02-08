@@ -5,12 +5,12 @@ import { combineClassNames } from '../helpers/commons'
 import styles from './main.module.css'
 
 const TicketList = ({
-  open = false,
+  enabled = false,
   tickets = [],
   wrapperCustomClassNames = []
   }) => {
   
-  if(!open || tickets.length === 0) return null
+  if(!enabled || tickets.length === 0) return null
   
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames]) }>
@@ -40,7 +40,7 @@ const TicketList = ({
 }
 
 TicketList.propTypes = {
-  open: PropTypes.bool,
+  enabled: PropTypes.bool,
   tickets: PropTypes.arrayOf(SHAPE_GUEST_TICKET),
   wrapperCustomClassNames: PT_CLASSNAMES
 }

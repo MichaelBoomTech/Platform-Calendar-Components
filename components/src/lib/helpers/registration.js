@@ -1,9 +1,9 @@
 import moment from "moment";
 import {encodeId} from './commons'
 
-export function getShowRegistrationButtonStatus(event, open) {
+export function getShowRegistrationButtonStatus(event, enabled) {
   if(moment(event.end).isBefore(moment())) return false
-  return open
+  return enabled
 }
 
 export function generateRegistrationURL(cid, event, registration, urlBase) {
@@ -12,8 +12,8 @@ export function generateRegistrationURL(cid, event, registration, urlBase) {
 }
 
 export function getGuestsOptions(event, registration, tickets) {
-  if(!registration.open || registration.external) return null
-  if(tickets?.open && event.guests?.length && event.guests?.tickets?.length) return calcGuestsOptionsByTickets(event, tickets)
+  if(!registration.enabled || registration.external) return null
+  if(tickets?.enabled && event.guests?.length && event.guests?.tickets?.length) return calcGuestsOptionsByTickets(event, tickets)
   return {
     count: event?.guests?.length ?? 0,
     limit: registration.guestsLimit

@@ -72,7 +72,7 @@ exports.SHAPE_ORGANIZER = SHAPE_ORGANIZER;
 
 const SHAPE_REGISTRATION = _propTypes.default.shape({
   cid: PT_CID,
-  open: _propTypes.default.bool,
+  enabled: _propTypes.default.bool,
   external: _propTypes.default.bool,
   adminEmail: _propTypes.default.string,
   url: _propTypes.default.string,
@@ -98,7 +98,7 @@ const SHAPE_TICKET_FIELDS = _propTypes.default.shape({
 exports.SHAPE_TICKET_FIELDS = SHAPE_TICKET_FIELDS;
 
 const SHAPE_TICKETS = _propTypes.default.shape({
-  open: _propTypes.default.bool,
+  enabled: _propTypes.default.bool,
   fee: _propTypes.default.number,
   showLimit: _propTypes.default.bool,
   currency: CURRENCY_TYPES,

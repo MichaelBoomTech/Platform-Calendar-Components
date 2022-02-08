@@ -51,7 +51,7 @@ export const SHAPE_ORGANIZER = PropTypes.shape({
 
 export const SHAPE_REGISTRATION = PropTypes.shape({
     cid: PT_CID,
-    open: PropTypes.bool,
+    enabled: PropTypes.bool,
     external: PropTypes.bool,
     adminEmail: PropTypes.string,
     url: PropTypes.string,
@@ -71,7 +71,7 @@ export const SHAPE_TICKET_FIELDS = PropTypes.shape({
 })
 
 export const SHAPE_TICKETS = PropTypes.shape({
-    open: PropTypes.bool,
+    enabled: PropTypes.bool,
     fee: PropTypes.number,
     showLimit: PropTypes.bool,
     currency: CURRENCY_TYPES,
