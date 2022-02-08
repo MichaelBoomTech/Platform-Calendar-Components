@@ -2,67 +2,50 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from '../helpers/commons'
+import { SHAPE_LOCATION } from '../helpers/commonPropTypes'
+import { getLocationOptions } from '../helpers/location'
 
 const Location = ({
   data,
-  disabled = false,
-  showIcon = true,
-  oneLine = false,
-  linkClassName = '',
-  textClassName = '',
+  elipsis = false,
+  linkCustomClassNames = [],
+  textCustomClassNames = [],
   wrapperCustomClassNames = []
 }) => {
+  
   if(!data) return null
+  
+  const { isLink, value, href } = getLocationOptions(data)
 
-  const {lat, lng} = data;
-
-  if(!lat || !lng || isNaN(Number(lat)) || isNaN(Number(lng))){
-    return (
-      <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])}>
-        <p className={combineClassNames([oneLine ? styles.oneLine : undefined, textClassName])}>
-          {data.address}
-        </p>
-      </div>
-    )
-  }
   return (
-    <div className={combineClassNames([styles.location_parent, ...wrapperCustomClassNames])} >
-      {showIcon && <div className={combineClassNames([styles.icon, 'icon-location', linkClassName])} />}
-      <a 
-        href={disabled ? undefined : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.address)}`} 
-        target="_blank" 
-        className={combineClassNames([oneLine ? styles.oneLine : undefined, linkClassName])}
-        onClick={e => {
-          e.stopPropagation();
-          disabled && e.preventDefault();
-        }}
-      >
-        {data.address}
-      </a>
+    <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)]) }>
+      <div className='icon-location' />
+      <div className={ elipsis ? styles.text_elipsis : '' }>
+        {
+          isLink ?
+          
+          <a
+            href={ href }
+            target='_blank'
+          >
+            { value }
+          </a> :
+
+          <>
+            { value }
+          </>
+        }
+      </div>
     </div>
   )
 }
 
 Location.propTypes = {
-  data: PropTypes.shape({
-    address: PropTypes.string,
-    email: PropTypes.string,
-    name: PropTypes.string,
-    phone: PropTypes.string,
-    website: PropTypes.string,
-    city: PropTypes.string,
-    statesList: PropTypes.string,
-    country: PropTypes.string,
-    postal: PropTypes.string,
-    lat: PropTypes.number,
-    lng: PropTypes.number 
-  }),
+  data: SHAPE_LOCATION,
+  elipsis: PropTypes.bool,
+  linkCustomClassNames: PropTypes.string,
+  textCustomClassNames: PropTypes.string,
   wrapperCustomClassNames: PropTypes.array,
-  disabled: PropTypes.bool,
-  showIcon: PropTypes.bool,
-  oneLine: PropTypes.bool,
-  linkClassName: PropTypes.string,
-  textClassName: PropTypes.string
 }
 
 export default Location

@@ -1,5 +1,11 @@
 import { copyLink, downloadSharer, openAddToUrl, openShareUrl } from "./addShare";
 
+export const LOCATION_TYPES = {
+  physical: 'physical', 
+  online: 'online', 
+  tbd: 'tbd'
+}
+
 export const LISTED_DETAILS_CONSTRUCTOR = {
   name: {
     iconName: 'name',

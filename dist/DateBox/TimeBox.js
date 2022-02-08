@@ -52,6 +52,10 @@ const TimeBox = _ref => {
   } = (0, _dateBox.formatTime)(start, end, timeFormat, all_day, locale);
   const timeZoneToShow = all_day || !showTimeZone ? '' : timeZone;
   const datesEqual = startDate === endDate;
+  console.log({
+    startDate,
+    endDate
+  });
 
   if (datesEqual && all_day && agenda) {
     return /*#__PURE__*/_react.default.createElement("div", {
@@ -78,11 +82,11 @@ const TimeBox = _ref => {
     className: (datesEqual ? _mainModule.default.start_date_icon : '') + ' icon-clock'
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : null
-  }, !datesEqual ? endDate + endTime + ' ' + timeZoneToShow : startTime.trim() + ' -' + endTime + ' ' + timeZoneToShow)), showHiddenRow && /*#__PURE__*/_react.default.createElement("div", {
+  }, datesEqual ? startTime.trim() + (startTime === endTime ? '' : ' -' + endTime) + ' ' + timeZoneToShow : endDate + endTime + ' ' + timeZoneToShow)), showHiddenRow ? /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.two_line_start, _mainModule.default.hidden])
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : undefined
-  }, "hidden row")));
+  }, "hidden row")) : null);
 };
 
 var _default = /*#__PURE__*/(0, _react.memo)(TimeBox);

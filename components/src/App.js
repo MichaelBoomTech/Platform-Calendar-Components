@@ -43,8 +43,8 @@ function App() {
           boomEventUrlBase={'https://calendar.boomte.ch/single/'}
           order='vertical'
           hideAddToIcons={false}
-      />     
-      <ListedDetails
+      />
+      {/* <ListedDetails
           title='title' 
           id={'id'}
           // title={'venueTitle'}
@@ -59,8 +59,27 @@ function App() {
           wrapperCustomClassNames={['wrapper-call']}
           textDetailsCustomClassNames={['textDetailsCustomClassNames']}
           linkDetailsCustomClassNames={['linkDetailsCustomClassNames']}
+      /> */}
+      <Location
+        elipsis
+        textCustomClassNames={['123']}
+        linkCustomClassNames={['456']}
+        wrapperCustomClassNames={['789']}
+        data={{
+          type: 'tbd',
+          values: {
+            physical: {
+              address: 'Shengavit', 
+              lat: 100, 
+
+              lng: 200
+            },
+            tbd: '123132',
+            online: 'figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8'
+          }
+            
+        }}
       />
-      <Location data={{address: 'ShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavitShengavit', lat: 100, lng: 200}} />
       
       <hr/>
       <RegistrationButton
@@ -77,7 +96,7 @@ function App() {
       /> 
       {/* <DateBox
         start="09/27/2021T12:30"
-        end="09/27/2021T13:30"
+        end="09/27/2021T12:30"
         dateFormat='dddd, MMMM DD'
         timeFormat='am/pm'
         all_day={true}
@@ -99,9 +118,10 @@ function App() {
         direction='row'
         /> */}
         <hr/>
-      {/* <DateBox
+      <DateBox
         start="11/19/2021T17:00"
         end="11/19/2021T19:00"
+        type='timeBox'
         dateFormat='dddd, MMMM DD, YYYY'
         timeFormat='am/pm'
         all_day={false}
@@ -111,9 +131,9 @@ function App() {
         showYear={true}
         year={2019}
         fixedHeight={true}
-        agenda={true}
-      /> */}
-        <DateBox
+        // agenda={true}
+      />
+        {/* <DateBox
           start="09/27/2021T13:30"
           end="09/27/2022T13:30"
           // dateFormat="DD MMMM, YYYY"
@@ -123,7 +143,7 @@ function App() {
           // type="dateBox"
           timeFormat='am/pm'
           showYear={true}
-        />      
+        />       */}
 
       {/* <CategoryItem
         category={{

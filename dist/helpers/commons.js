@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.combineClassNames = combineClassNames;
 exports.parseJson = parseJson;
+exports.validateURL = validateURL;
 exports.stopPropagation = exports.isObjectEmpty = exports.encodeId = exports.isDefined = void 0;
 
 require("core-js/modules/es.regexp.exec.js");
@@ -100,4 +101,9 @@ function parseJson(obj) {
   }
 
   return JSON.parse(obj);
+}
+
+function validateURL(url) {
+  if (url.indexOf('http') !== 0 && url.indexOf('file://') !== 0) return 'https://' + url;
+  return url;
 }

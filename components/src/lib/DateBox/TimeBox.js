@@ -31,7 +31,7 @@ const TimeBox = ({
   )
   const timeZoneToShow = (all_day || !showTimeZone) ? '' : timeZone
   const datesEqual = startDate === endDate
-  
+  console.log({startDate, endDate});
   if (datesEqual && all_day && agenda) {
     return (
       <div className={combineClassNames([styles.all_day_text_parent, ...wrapperCustomClassNames])}>
@@ -67,19 +67,21 @@ const TimeBox = ({
           }
           <p className={oneLine ? styles.oneLine : null}>
           {
-            !datesEqual ? 
-            endDate + endTime + ' ' + timeZoneToShow : 
-            (startTime.trim() + ' -' + endTime + ' ' + timeZoneToShow)
+            datesEqual ? 
+            (startTime.trim() + (startTime === endTime ? '' : ' -' + endTime) + ' ' + timeZoneToShow) :
+            endDate + endTime + ' ' + timeZoneToShow 
           }
           </p>
         </div>
       }
-      {showHiddenRow &&
+      {
+        showHiddenRow ?
         <div className={combineClassNames([styles.two_line_start, styles.hidden])}>
           <p className={oneLine ? styles.oneLine : undefined}>
             hidden row
           </p>
-        </div>
+        </div> :
+        null
       }
     </div>
   )

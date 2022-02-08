@@ -3,10 +3,16 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = void 0;
+exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
 
 var _addShare = require("./addShare");
 
+const LOCATION_TYPES = {
+  physical: 'physical',
+  online: 'online',
+  tbd: 'tbd'
+};
+exports.LOCATION_TYPES = LOCATION_TYPES;
 const LISTED_DETAILS_CONSTRUCTOR = {
   name: {
     iconName: 'name'

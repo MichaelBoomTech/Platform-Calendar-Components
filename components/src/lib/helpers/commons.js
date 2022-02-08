@@ -63,3 +63,8 @@ export function parseJson(obj) {
     }
     return JSON.parse(obj);    
 }
+
+export function validateURL(url) {
+    if(url.indexOf('http') !== 0 && url.indexOf('file://') !== 0) return 'https://' + url
+    return url
+}

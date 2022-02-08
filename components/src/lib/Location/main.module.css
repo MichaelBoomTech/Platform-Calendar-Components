@@ -1,22 +1,30 @@
-.location_parent {
+.wrapper {
   display: flex;
-  cursor: pointer;
-  width: 100%;
   gap: .5rem;
 }
 
-.location_parent a,
+.wrapper .text_elipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wrapper a {
+  color: inherit
+}
+
+/* .location_parent a,
 .location_parent P{
   margin: 0;
   overflow-wrap: anywhere;
-}
+} */
 
-.location_parent .icon {
+/* .location_parent .icon {
   width: 1em;
-}
+} */
 
-.oneLine{
+/* .oneLine{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-}
+} */
