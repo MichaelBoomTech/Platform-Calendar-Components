@@ -67,8 +67,8 @@ const DetailsItem = ({value, template, rowCustomClassNames}) => {
           <div>{value}</div> : 
           <a 
             target='_blank' 
+            rel='noreferrer'
             href={template.preposition + value}
-            rel="noreferrer"
             onClick={stopPropagation}
           >
             {value}

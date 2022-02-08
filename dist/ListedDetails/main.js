@@ -87,8 +87,8 @@ const DetailsItem = _ref3 => {
     className: 'icon-' + template.iconName
   }), /*#__PURE__*/_react.default.createElement("div", null, !(0, _commons.isDefined)(template.preposition) ? /*#__PURE__*/_react.default.createElement("div", null, value) : /*#__PURE__*/_react.default.createElement("a", {
     target: "_blank",
-    href: template.preposition + value,
     rel: "noreferrer",
+    href: template.preposition + value,
     onClick: _commons.stopPropagation
   }, value)));
 };

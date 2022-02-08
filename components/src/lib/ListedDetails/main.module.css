@@ -27,5 +27,6 @@ h3.bordered {
 
 .listed_details_row>span,
 .listed_details_row>a {
-  margin-left: .5rem
+  margin-left: .5rem;
+  color: inherit;
 }

@@ -43,10 +43,7 @@
 .add_share_icons_row button {
     all: initial;
     cursor: pointer;
-    padding-left: .2rem;
-    padding-right: .2rem;
-    margin-left: .2rem;
-    margin-right: .2rem;
+    margin-right: .8rem;
 }
 
 h3.bordered {
