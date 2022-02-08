@@ -11,7 +11,7 @@ const TimeBox = ({
   locale,
   dateFormat,
   timeFormat,
-  all_day,
+  allDay,
   showTimeZone,
   timeZone,
   wrapperCustomClassNames = [],
@@ -26,22 +26,22 @@ const TimeBox = ({
     start,
     end,
     timeFormat,
-    all_day,
+    allDay,
     locale
   )
-  const timeZoneToShow = (all_day || !showTimeZone) ? '' : timeZone
+  const timeZoneToShow = (allDay || !showTimeZone) ? '' : timeZone
   const datesEqual = startDate === endDate
-  console.log({startDate, endDate});
-  if (datesEqual && all_day && agenda) {
+
+  if (datesEqual && allDay && agenda) {
     return (
       <div className={combineClassNames([styles.all_day_text_parent, ...wrapperCustomClassNames])}>
-        <p className='all_day_text'>{allDayText}</p>
-        {fixedHeight && <p className={combineClassNames([styles.hidden, 'all_day_text'])}>hidden row</p>}
+        <p>{allDayText}</p>
+        {fixedHeight && <p className={styles.hidden}>hidden row</p>}
       </div>
     )
   }
 
-  const showHiddenRow = datesEqual && (all_day || agenda) && fixedHeight;
+  const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
 
   return (
     <div className={combineClassNames([...wrapperCustomClassNames, styles.timebox_wrapper])}>
@@ -59,7 +59,7 @@ const TimeBox = ({
         </div>
       }
 
-      {!(datesEqual && all_day) &&
+      {!(datesEqual && allDay) &&
         <div className={styles.two_line_end}>
           {
             showIcons && 

@@ -1,9 +1,9 @@
 import moment from "moment";
 import {encodeId} from './commons'
 
-export function getShowRegistrationButtonStatus(event, registration) {
-  if(moment(event.start).isBefore(moment())) return false
-  return registration.open
+export function getShowRegistrationButtonStatus(event, open) {
+  if(moment(event.end).isBefore(moment())) return false
+  return open
 }
 
 export function generateRegistrationURL(cid, event, registration, urlBase) {

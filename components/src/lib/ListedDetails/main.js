@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { combineClassNames, isDefined, isObjectEmpty, parseJson, stopPropagation } from '../helpers/commons'
 import { LISTED_DETAILS_CONSTRUCTOR } from '../helpers/constants'
 import Location from './../Location'
+import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 const ListedDetails = ({
     id,
@@ -84,9 +85,9 @@ ListedDetails.propTypes = {
   title: PropTypes.string,
   titleBorderHidden: PropTypes.bool,
   values: PropTypes.object.isRequired,
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-  textDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-  linkDetailsCustomClassNames: PropTypes.arrayOf(PropTypes.string)
+  wrapperCustomClassNames: PT_CLASSNAMES,
+  textDetailsCustomClassNames: PT_CLASSNAMES,
+  linkDetailsCustomClassNames: PT_CLASSNAMES
 }
 
 export default memo(ListedDetails)

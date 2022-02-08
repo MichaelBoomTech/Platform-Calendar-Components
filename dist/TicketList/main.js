@@ -42,7 +42,7 @@ const TicketList = _ref => {
 TicketList.propTypes = {
   open: _propTypes.default.bool,
   tickets: _propTypes.default.arrayOf(_commonPropTypes.SHAPE_GUEST_TICKET),
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 var _default = TicketList;
 exports.default = _default;

@@ -17,6 +17,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _commons = require("../helpers/commons");
 
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -50,7 +52,7 @@ CategoryItem.propTypes = {
     name: _propTypes.default.string,
     color: _propTypes.default.string
   }),
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 
 var _default = /*#__PURE__*/(0, _react.memo)(CategoryItem);

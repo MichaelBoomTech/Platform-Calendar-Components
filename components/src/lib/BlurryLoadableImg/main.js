@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { decreaseImgQuality, isImgCached, isImgDecreasable } from '../helpers/blurryLoadableImage'
 import { combineClassNames } from '../helpers/commons'
+import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 const BlurryLoadableImg = ({
     url,
@@ -57,8 +58,8 @@ BlurryLoadableImg.propTypes = {
   color: PropTypes.string,
   title: PropTypes.string,
   showColorAsBackground: PropTypes.bool,
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-  imgCustomClassNames: PropTypes.arrayOf(PropTypes.string),
+  wrapperCustomClassNames: PT_CLASSNAMES,
+  imgCustomClassNames: PT_CLASSNAMES,
 }
 
 export default memo(BlurryLoadableImg)

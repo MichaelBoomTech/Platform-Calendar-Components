@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SHAPE_GUEST_TICKET } from '../helpers/commonPropTypes'
+import { PT_CLASSNAMES, SHAPE_GUEST_TICKET } from '../helpers/commonPropTypes'
 import { combineClassNames } from '../helpers/commons'
 import styles from './main.module.css'
 
@@ -42,7 +42,7 @@ const TicketList = ({
 TicketList.propTypes = {
   open: PropTypes.bool,
   tickets: PropTypes.arrayOf(SHAPE_GUEST_TICKET),
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
+  wrapperCustomClassNames: PT_CLASSNAMES
 }
 
 export default TicketList

@@ -5,6 +5,7 @@ import '../assets/styles/icons.css'
 import { ADD_SHARE_ICONS_CONSTRUCTOR } from '../helpers/constants'
 import { combineClassNames } from '../helpers/commons'
 import { generateEventUrl } from '../helpers/addShare'
+import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 export default function AddShareIcons(props) {
 
@@ -135,9 +136,9 @@ AddShareIcons.propTypes = {
    shareSectionName: PropTypes.string,
    copyActionTooltipText: PropTypes.string,
    copiedTooltipText: PropTypes.string,
-   wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-   titleCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-   contentCustomClassNames: PropTypes.arrayOf(PropTypes.string),
-   copyTooltipCustomClassNames: PropTypes.arrayOf(PropTypes.string),
+   wrapperCustomClassNames: PT_CLASSNAMES,
+   titleCustomClassNames: PT_CLASSNAMES,
+   contentCustomClassNames: PT_CLASSNAMES,
+   copyTooltipCustomClassNames: PT_CLASSNAMES,
    order: PropTypes.oneOf(['vertical', 'horizontal'])
 }

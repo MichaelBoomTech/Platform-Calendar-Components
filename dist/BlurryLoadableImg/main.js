@@ -17,6 +17,8 @@ var _blurryLoadableImage = require("../helpers/blurryLoadableImage");
 
 var _commons = require("../helpers/commons");
 
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -72,8 +74,8 @@ BlurryLoadableImg.propTypes = {
   color: _propTypes.default.string,
   title: _propTypes.default.string,
   showColorAsBackground: _propTypes.default.bool,
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  imgCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  imgCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 
 var _default = /*#__PURE__*/(0, _react.memo)(BlurryLoadableImg);

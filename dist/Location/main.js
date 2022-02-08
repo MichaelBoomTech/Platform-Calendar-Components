@@ -50,9 +50,9 @@ const Location = _ref => {
 Location.propTypes = {
   data: _commonPropTypes.SHAPE_LOCATION,
   elipsis: _propTypes.default.bool,
-  linkCustomClassNames: _propTypes.default.string,
-  textCustomClassNames: _propTypes.default.string,
-  wrapperCustomClassNames: _propTypes.default.array
+  linkCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  textCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 var _default = Location;
 exports.default = _default;

@@ -33,7 +33,7 @@ const TimeBox = _ref => {
     locale,
     dateFormat,
     timeFormat,
-    all_day,
+    allDay,
     showTimeZone,
     timeZone,
     wrapperCustomClassNames = [],
@@ -49,25 +49,19 @@ const TimeBox = _ref => {
   const {
     startTime,
     endTime
-  } = (0, _dateBox.formatTime)(start, end, timeFormat, all_day, locale);
-  const timeZoneToShow = all_day || !showTimeZone ? '' : timeZone;
+  } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
+  const timeZoneToShow = allDay || !showTimeZone ? '' : timeZone;
   const datesEqual = startDate === endDate;
-  console.log({
-    startDate,
-    endDate
-  });
 
-  if (datesEqual && all_day && agenda) {
+  if (datesEqual && allDay && agenda) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: (0, _commons.combineClassNames)([_mainModule.default.all_day_text_parent, ...wrapperCustomClassNames])
-    }, /*#__PURE__*/_react.default.createElement("p", {
-      className: "all_day_text"
-    }, allDayText), fixedHeight && /*#__PURE__*/_react.default.createElement("p", {
-      className: (0, _commons.combineClassNames)([_mainModule.default.hidden, 'all_day_text'])
+    }, /*#__PURE__*/_react.default.createElement("p", null, allDayText), fixedHeight && /*#__PURE__*/_react.default.createElement("p", {
+      className: _mainModule.default.hidden
     }, "hidden row"));
   }
 
-  const showHiddenRow = datesEqual && (all_day || agenda) && fixedHeight;
+  const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])
   }, !(datesEqual && agenda) && /*#__PURE__*/_react.default.createElement("div", {
@@ -76,7 +70,7 @@ const TimeBox = _ref => {
     className: datesEqual ? 'icon-date' : _mainModule.default.start_date_icon + ' icon-clock'
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : 'undefined'
-  }, startDate + (datesEqual ? '' : startTime + ' ' + timeZoneToShow))), !(datesEqual && all_day) && /*#__PURE__*/_react.default.createElement("div", {
+  }, startDate + (datesEqual ? '' : startTime + ' ' + timeZoneToShow))), !(datesEqual && allDay) && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.two_line_end
   }, showIcons && /*#__PURE__*/_react.default.createElement("div", {
     className: (datesEqual ? _mainModule.default.start_date_icon : '') + ' icon-clock'

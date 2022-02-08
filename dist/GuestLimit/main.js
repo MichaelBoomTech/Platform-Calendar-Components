@@ -17,7 +17,7 @@ var _commons = require("./../helpers/commons");
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
 
-var _guestLimit = require("../helpers/guestLimit");
+var _registration = require("../helpers/registration");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,8 +33,10 @@ const GuestLimit = _ref => {
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.open) || (registration === null || registration === void 0 ? void 0 : registration.open));
+  if (!show) return null;
   if (!(tickets !== null && tickets !== void 0 && (_tickets$list = tickets.list) !== null && _tickets$list !== void 0 && _tickets$list.length) && (registration.guestsLimited || !registration.showGuests)) return null;
-  const guestsOptions = (0, _guestLimit.getGuestsOptions)(event, registration, tickets);
+  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, tickets);
   if (!guestsOptions) return null;
   const {
     count,
@@ -50,7 +52,7 @@ GuestLimit.propTypes = {
   guests: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_GUEST)),
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
   globalTickets: _commonPropTypes.SHAPE_TICKETS,
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 var _default = GuestLimit;
 exports.default = _default;

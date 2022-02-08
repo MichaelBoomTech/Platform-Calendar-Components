@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from './../helpers/commons'
-import { PT_Cid, SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
-import { getShowRegistrationButtonStatus, generateRegistrationURL, getGuestsOptions } from '../helpers/guestLimit'
+import { PT_CID, PT_CLASSNAMES, SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { getShowRegistrationButtonStatus, generateRegistrationURL, getGuestsOptions } from '../helpers/registration'
 
 const RegistrationButton = ({
   cid,
@@ -17,7 +17,7 @@ const RegistrationButton = ({
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
 
-  const show = getShowRegistrationButtonStatus(event, registration)
+  const show = getShowRegistrationButtonStatus(event, tickets?.open || registration?.open)
   if (!show) return null
 
   const url = generateRegistrationURL(cid, event, registration, urlBase)
@@ -38,13 +38,13 @@ const RegistrationButton = ({
 }
 
 RegistrationButton.propTypes = {
-  cid: PT_Cid.isRequired,
+  cid: PT_CID.isRequired,
   urlBase: PropTypes.string.isRequired,
   text: PropTypes.string,
   event: SHAPE_EVENT,
   globalRegistration: SHAPE_REGISTRATION,
   globalTickets: SHAPE_TICKETS,
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
+  wrapperCustomClassNames: PT_CLASSNAMES
 }
 
 

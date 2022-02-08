@@ -3,6 +3,7 @@ import styles from './main.module.css'
 import '../assets/styles/icons.css'
 import PropTypes from 'prop-types'
 import { combineClassNames } from '../helpers/commons'
+import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 const CategoryItem = (props) => {
   
@@ -33,7 +34,7 @@ CategoryItem.propTypes = {
     name: PropTypes.string, 
     color: PropTypes.string,
   }),
-  wrapperCustomClassNames: PropTypes.arrayOf(PropTypes.string)
+  wrapperCustomClassNames: PT_CLASSNAMES
 }
 
 export default memo(CategoryItem)

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from '../helpers/commons'
-import { SHAPE_LOCATION } from '../helpers/commonPropTypes'
+import { PT_CLASSNAMES, SHAPE_LOCATION } from '../helpers/commonPropTypes'
 import { getLocationOptions } from '../helpers/location'
 
 const Location = ({
@@ -43,9 +43,9 @@ const Location = ({
 Location.propTypes = {
   data: SHAPE_LOCATION,
   elipsis: PropTypes.bool,
-  linkCustomClassNames: PropTypes.string,
-  textCustomClassNames: PropTypes.string,
-  wrapperCustomClassNames: PropTypes.array,
+  linkCustomClassNames: PT_CLASSNAMES,
+  textCustomClassNames: PT_CLASSNAMES,
+  wrapperCustomClassNames: PT_CLASSNAMES,
 }
 
 export default Location

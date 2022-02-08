@@ -21,6 +21,8 @@ var _commons = require("../helpers/commons");
 
 var _addShare = require("../helpers/addShare");
 
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -126,9 +128,9 @@ AddShareIcons.propTypes = {
   shareSectionName: _propTypes.default.string,
   copyActionTooltipText: _propTypes.default.string,
   copiedTooltipText: _propTypes.default.string,
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  titleCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  contentCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  copyTooltipCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  titleCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  contentCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  copyTooltipCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   order: _propTypes.default.oneOf(['vertical', 'horizontal'])
 };

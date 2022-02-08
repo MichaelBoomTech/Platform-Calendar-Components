@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 
-export const PT_Cid = PropTypes.string
+export const PT_CLASSNAMES = PropTypes.arrayOf(PropTypes.string)
+
+export const PT_CID = PropTypes.string
 
 export const SHAPE_PHYSICAL_LOCATION = PropTypes.shape({
     address: PropTypes.string,
@@ -48,7 +50,7 @@ export const SHAPE_ORGANIZER = PropTypes.shape({
 })
 
 export const SHAPE_REGISTRATION = PropTypes.shape({
-    cid: PT_Cid,
+    cid: PT_CID,
     open: PropTypes.bool,
     external: PropTypes.bool,
     adminEmail: PropTypes.string,

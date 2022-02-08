@@ -11,15 +11,15 @@ import { D_EVENT_1, D_REGISTRATION } from './lib/helpers/defaults'
 import TicketList from './lib/TicketList/main'
 
 function App() {
-  let exampleEvent1 = {"id":343491,"title":"Open Air Poetry Reading and Discussion","start":"2021-04-21","end":"2021-04-27","all_day":1,"image":"https:\/\/static.wixstatic.com\/media\/11062b_b31efefcdf3846849b7fe93d9203f105~mv2_d_6200_4132_s_4_2.jpg","desc":"<p>Four amazing evenings of poetry reading and discussion! We will do a poetry reading from various poets followed by an interactive discussion. Each day there will be three poets whose works will be read and discussed.<br>If you want to attend and listen to some great poetry, please register. Our organizers will get back to you.<\/p>","color":"color-13","venue":{"name":"Virginia Road","address":"1485 Virginia Road, San Marino, CA 91108, USA","city":"","statesList":"","country":"","postal":"","phone":"","email":"","website":"","showMap":"1","showMapLink":"1","lat":"34.1204167","long":"-118.1201348"},"organizer":{"name":"","phone":"","website":"","email":""},"repeat":{"type":"","interval":"","end":"","advanced":"","exclude":""},"kind":"4","categories":[],"guests":[],"registration":null,"tickets":null};
-  let exampleEvent2 = {"id":782910,"title":"Bisong Art Gallery","start":"2022-02-04T18:00","end":"2022-02-04T21:00","all_day":0,"image":"https:\/\/static.wixstatic.com\/media\/f4af14_0be51224659d4168a6b0d79a214548d3~mv2.jpg","desc":"<p>Bisong Art Gallery along with The D.R.E.A.M Affect Foundation is partnering with Prairie View A&amp;M Northwest Houston Center for a Black History Month Exhibition.<\/p><br><p>\"Culture: Our New Normal\" draws attention to the current events of black culture and how they continue to shape history. A portion of the proceeds will go to a scholarship fund for a Fine Art Student at PVAMU.<\/p>","color":"#9fe1e7","venue":{"address":"Prairie View A&M University, N.W. Houston Center, 9449 Grant Road, Houston, TX 77070, USA","email":"","name":"Prairie View A&M University","phone":"","showMap":"1","showMapLink":"1","website":"","lat":"29.9658645","long":"-95.5587025"},"organizer":{"email":"info@bisonggallery.com","name":"Bisong Art Gallery","phone":"713-498-3015","website":"www.bisonggallery.com"},"repeat":{"type":"","interval":"","end":"","advanced":""},"kind":"1","categories":[{"id":19412,"name":"Opening Reception","color":"#005FB0"}],"guests":[],"registration":null,"tickets":null}
-  if(!exampleEvent1.all_day) {
+  let exampleEvent1 = {"id":343491,"title":"Open Air Poetry Reading and Discussion","start":"2021-04-21","end":"2021-04-27","allDay":1,"image":"https:\/\/static.wixstatic.com\/media\/11062b_b31efefcdf3846849b7fe93d9203f105~mv2_d_6200_4132_s_4_2.jpg","desc":"<p>Four amazing evenings of poetry reading and discussion! We will do a poetry reading from various poets followed by an interactive discussion. Each day there will be three poets whose works will be read and discussed.<br>If you want to attend and listen to some great poetry, please register. Our organizers will get back to you.<\/p>","color":"color-13","venue":{"name":"Virginia Road","address":"1485 Virginia Road, San Marino, CA 91108, USA","city":"","statesList":"","country":"","postal":"","phone":"","email":"","website":"","showMap":"1","showMapLink":"1","lat":"34.1204167","long":"-118.1201348"},"organizer":{"name":"","phone":"","website":"","email":""},"repeat":{"type":"","interval":"","end":"","advanced":"","exclude":""},"kind":"4","categories":[],"guests":[],"registration":null,"tickets":null};
+  let exampleEvent2 = {"id":782910,"title":"Bisong Art Gallery","start":"2022-02-04T18:00","end":"2022-02-04T21:00","allDay":0,"image":"https:\/\/static.wixstatic.com\/media\/f4af14_0be51224659d4168a6b0d79a214548d3~mv2.jpg","desc":"<p>Bisong Art Gallery along with The D.R.E.A.M Affect Foundation is partnering with Prairie View A&amp;M Northwest Houston Center for a Black History Month Exhibition.<\/p><br><p>\"Culture: Our New Normal\" draws attention to the current events of black culture and how they continue to shape history. A portion of the proceeds will go to a scholarship fund for a Fine Art Student at PVAMU.<\/p>","color":"#9fe1e7","venue":{"address":"Prairie View A&M University, N.W. Houston Center, 9449 Grant Road, Houston, TX 77070, USA","email":"","name":"Prairie View A&M University","phone":"","showMap":"1","showMapLink":"1","website":"","lat":"29.9658645","long":"-95.5587025"},"organizer":{"email":"info@bisonggallery.com","name":"Bisong Art Gallery","phone":"713-498-3015","website":"www.bisonggallery.com"},"repeat":{"type":"","interval":"","end":"","advanced":""},"kind":"1","categories":[{"id":19412,"name":"Opening Reception","color":"#005FB0"}],"guests":[],"registration":null,"tickets":null}
+  if(!exampleEvent1.allDay) {
     exampleEvent1.startTime = moment(exampleEvent1.start).format('HH:mm');
     exampleEvent1.endTime = moment(exampleEvent1.end).format('HH:mm');
   }
   
-  // let exampleEvent2 = {"id":343490,"title":"Yoga at the Beach","start":"2021-04-26T13:00:00","end":"2021-04-26T14:00:00","all_day":0,"image":"https:\/\/static.wixstatic.com\/media\/11062b_30464ec0744e445198eb1b60f2b594c2~mv2_d_5327_3551_s_4_2.jpg","desc":"Leave your stress at the office! Come join us this Tuesday afternoon for yoga during your lunch break.","color":"color-8","venue":{"name":"Marina del Rey","address":"Marina del Rey, CA, USA","city":"","statesList":"","country":"","postal":"","phone":"","email":"","website":"","showMap":"1","showMapLink":"1","lat":"33.9802893","long":"-118.4517449"},"organizer":{"name":"","phone":"","website":"","email":""},"repeat":{"type":"","interval":"","end":"","advanced":"","exclude":""},"kind":"0","categories":[],"guests":[],"registration":null,"tickets":null};
-  // if(!exampleEvent2.all_day) {
+  // let exampleEvent2 = {"id":343490,"title":"Yoga at the Beach","start":"2021-04-26T13:00:00","end":"2021-04-26T14:00:00","allDay":0,"image":"https:\/\/static.wixstatic.com\/media\/11062b_30464ec0744e445198eb1b60f2b594c2~mv2_d_5327_3551_s_4_2.jpg","desc":"Leave your stress at the office! Come join us this Tuesday afternoon for yoga during your lunch break.","color":"color-8","venue":{"name":"Marina del Rey","address":"Marina del Rey, CA, USA","city":"","statesList":"","country":"","postal":"","phone":"","email":"","website":"","showMap":"1","showMapLink":"1","lat":"33.9802893","long":"-118.4517449"},"organizer":{"name":"","phone":"","website":"","email":""},"repeat":{"type":"","interval":"","end":"","advanced":"","exclude":""},"kind":"0","categories":[],"guests":[],"registration":null,"tickets":null};
+  // if(!exampleEvent2.allDay) {
   //   exampleEvent2.startTime = moment(exampleEvent2.start).format('HH:mm');
   //   exampleEvent2.endTime = moment(exampleEvent2.end).format('HH:mm');
   // }
@@ -99,7 +99,7 @@ function App() {
         end="09/27/2021T12:30"
         dateFormat='dddd, MMMM DD'
         timeFormat='am/pm'
-        all_day={true}
+        allDay={true}
         showIcons={true}
         type='dateBox'
         oneLine={false}
@@ -124,7 +124,7 @@ function App() {
         type='timeBox'
         dateFormat='dddd, MMMM DD, YYYY'
         timeFormat='am/pm'
-        all_day={false}
+        allDay={false}
         showIcons={true}
         oneLine={false}
         direction='row'
@@ -137,7 +137,7 @@ function App() {
           start="09/27/2021T13:30"
           end="09/27/2022T13:30"
           // dateFormat="DD MMMM, YYYY"
-          all_day={false}
+          allDay={false}
           // agenda={true}
           showIcons={true}
           // type="dateBox"

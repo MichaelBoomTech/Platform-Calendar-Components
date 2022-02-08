@@ -17,7 +17,7 @@ var _commons = require("./../helpers/commons");
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
 
-var _guestLimit = require("../helpers/guestLimit");
+var _registration = require("../helpers/registration");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,10 +35,10 @@ const RegistrationButton = _ref => {
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
-  const show = (0, _guestLimit.getShowRegistrationButtonStatus)(event, registration);
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.open) || (registration === null || registration === void 0 ? void 0 : registration.open));
   if (!show) return null;
-  const url = (0, _guestLimit.generateRegistrationURL)(cid, event, registration, urlBase);
-  const guestsOptions = (0, _guestLimit.getGuestsOptions)(event, registration, tickets);
+  const url = (0, _registration.generateRegistrationURL)(cid, event, registration, urlBase);
+  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, tickets);
   if (!guestsOptions) return null;
   const {
     count,
@@ -52,13 +52,13 @@ const RegistrationButton = _ref => {
 };
 
 RegistrationButton.propTypes = {
-  cid: _commonPropTypes.PT_Cid.isRequired,
+  cid: _commonPropTypes.PT_CID.isRequired,
   urlBase: _propTypes.default.string.isRequired,
   text: _propTypes.default.string,
   event: _commonPropTypes.SHAPE_EVENT,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
   globalTickets: _commonPropTypes.SHAPE_TICKETS,
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 var _default = RegistrationButton;
 exports.default = _default;

@@ -23,6 +23,8 @@ var _constants = require("../helpers/constants");
 
 var _Location = _interopRequireDefault(require("./../Location"));
 
+var _commonPropTypes = require("../helpers/commonPropTypes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -98,9 +100,9 @@ ListedDetails.propTypes = {
   title: _propTypes.default.string,
   titleBorderHidden: _propTypes.default.bool,
   values: _propTypes.default.object.isRequired,
-  wrapperCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  textDetailsCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string),
-  linkDetailsCustomClassNames: _propTypes.default.arrayOf(_propTypes.default.string)
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  textDetailsCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  linkDetailsCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
 
 var _default = /*#__PURE__*/(0, _react.memo)(ListedDetails);

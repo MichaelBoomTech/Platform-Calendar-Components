@@ -20,9 +20,9 @@ var _commons = require("./commons");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getShowRegistrationButtonStatus(event, registration) {
-  if ((0, _moment.default)(event.start).isBefore((0, _moment.default)())) return false;
-  return registration.open;
+function getShowRegistrationButtonStatus(event, open) {
+  if ((0, _moment.default)(event.end).isBefore((0, _moment.default)())) return false;
+  return open;
 }
 
 function generateRegistrationURL(cid, event, registration, urlBase) {
