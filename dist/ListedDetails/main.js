@@ -104,7 +104,5 @@ ListedDetails.propTypes = {
   textDetailsCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   linkDetailsCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
-
-var _default = /*#__PURE__*/(0, _react.memo)(ListedDetails);
-
+var _default = ListedDetails;
 exports.default = _default;

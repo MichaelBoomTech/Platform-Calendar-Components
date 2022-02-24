@@ -90,4 +90,4 @@ ListedDetails.propTypes = {
   linkDetailsCustomClassNames: PT_CLASSNAMES
 }
 
-export default memo(ListedDetails)
+export default ListedDetails
